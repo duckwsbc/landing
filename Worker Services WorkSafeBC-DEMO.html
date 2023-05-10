@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- PAGE settings -->
+  <title>Worker Services WorkSafeBC</title>
+  <!--CSS  -->
+  <link rel="stylesheet" href="./Worker Services WorkSafeBC-DEMO_files/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="./Worker Services WorkSafeBC-DEMO_files/wsbc.css">
+  <!--JS-->
+  <script src="./Worker Services WorkSafeBC-DEMO_files/jquery.js.download"></script>
+  <script src="./Worker Services WorkSafeBC-DEMO_files/popper.min.js.download"></script>
+  <script src="./Worker Services WorkSafeBC-DEMO_files/bootstrap.min.js.download"></script>
+  <script src="./Worker Services WorkSafeBC-DEMO_files/wsbc.js.download"></script>
+  <script src="./Worker Services WorkSafeBC-DEMO_files/intro.min.js.download" integrity="sha512-B0B1bdTGi9XHtoCINbtR6z9Vi8IYvvtImIE8KWMtqWAVUt2Wn2k69GxM7ya/3rQcz/Pgm/o1WcDU347/5k202A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!--CUSTOM PAGE STYLES-->
+  <style> h4 {font-size: 14px !important}
+
+    .minheight-sm {
+      min-height: 40px
+    }
+
+    .minheight-md {
+      min-height: 220px
+    }
+
+    .list-group-item {
+      border: 1px solid white;
+    }
+
+    .card {
+      border-radius: 8px;
+      border-color: #F1F0EF;
+      margin-bottom: 0px;
+    }
+
+    .underline {
+      text-decoration: underline
+    }
+
+    .outline {
+      border: 2px solid grey;
+      border-radius: 12px
+    }
+
+    .infocard {
+      border: 2px solid #E4E2E0 !important;
+      padding: 20px;
+      border-radius: 8px;
+      min-height: 120px;
+    }
+
+    .infocard:hover {
+      border: 2px solid #6399ae !important;
+      cursor: pointer;
+      background: #E0EBEF !important;
+    }
+
+    table {
+      font-size: 14px
+    }
+
+    .pinbottom {
+      position: relative;
+      bottom: -150px
+    }
+
+
+
+    b {
+      font-weight: 700 !important;
+    }
+
+    a .infocard {
+      color: #453f39;
+      font-weight: 400
+    }
+
+    .cardlink:hover {
+      text-decoration: none
+    }
+
+    .cardlink:visited,
+    .cardlink:focus {
+      text-decoration: none
+    }
+
+    @media screen and (max-width: 1024px) {
+      .desktop-only {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: 1025px) {
+      .mobile-only {
+        display: none;
+      }
+    }
+
+.text-primary {
+    color: #453f39 !important;
+    font-weight: 700;
+}
+
+
+
+
+@media screen and (max-width: 1200px) {
+.infocard {min-height: 160px}
+.card-title {font-size: 18px}
+}
+
+
+details summary:hover {color:#6399ae !important;}
+
+
+.table td, .table th {
+    border-top: 1px solid #f8f9fa;
+}
+
+
+@media screen and (max-width: 990px) {
+.infocard {min-height: 120px}}
+
+
+@media screen and (max-width: 1200px) {
+.infocard {min-height: 160px}
+.card-title {font-size: 18px}
+}
+
+@media screen and (max-width: 600px) {
+.infocard {min-height: auto}}
+
+
+  </style>
+</head>
+
+<body>
+  <!--UX LEGEND FEATURE - REMOVE IN PROD-->
+  <article class="uxlegend p-3 shadow white outlined" style="display: none;">
+    <style> .uxlegend {position: fixed; bottom:20px; right:20px; z-index:30}  
+.highlight {background: yellow; border: 4px dashed orange;}
+.highlight-yellow {background: #ffffdc; border: 4px dashed gold;}
+.highlight-blue {background: powderblue; border: 4px dashed cyan;}
+.highlight-pink {background: lightpink; border:4px dashed deeppink;}
+.highlight-orange {background: wheat; border: 4px dashed darkorange;}
+.strike {text-decoration: line-through}
+</style>
+    <div class="d-flex justify-content-between">
+      <div class="pb-3"><b>Legend</b></div>
+      <div class="pb-2"><i class="fa fa-times" role="button"></i></div>
+    </div>
+    <div class="d-flex">
+      <div class="p-2 highlight-pink mb-2 mr-2"></div>
+      <div id="btn-mmp2" role="button">MMP 2</div>
+    </div>
+    <div class="d-flex">
+      <div class="p-2 highlight-yellow mb-2 mr-2"></div>
+      <div id="btn-mmp3" role="button">MMP 3</div>
+    </div>
+    <a class="" role="button" id="toggleHighlights">Toggle highlights</a>
+    <script>
+      $(document).ready(function() {
+        //hide and show
+        $("#btn-mmp2").click(function() {
+          $(".mmp2").toggleClass("d-none");
+          $(this).toggleClass("strike");
+        });
+        //hide and show
+        $("#btn-mmp3").click(function() {
+          $(".mmp3").toggleClass("d-none");
+          $(this).toggleClass("strike");
+        });
+      });
+      //strike label on click
+      $(".fa-times").click(function() {
+        $(".uxlegend").fadeOut();
+      });
+      //remove all highlights
+      $("#toggleHighlights").click(function() {
+        $(".mmp2").toggleClass("highlight-pink");
+        $(".mmp3").toggleClass("highlight-yellow");
+      });
+    </script>
+  </article>
+  <script type="text/javascript">
+    introJs().start();
+  </script>
+  <script type="text/javascript" style="">
+    $(document).ready(function() {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
+  <header class="pb-4">
+    <div class="header-thinline"></div>
+    <div class="header-topline">
+      <div class="header-curve"></div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6"><img class="img-fluid d-block" src="./Worker Services WorkSafeBC-DEMO_files/worksafebc-logo.jpg"></div>
+        <div class="col-6 d-flex justify-content-end align-items-center text-right"></div>
+      </div>
+    </div>
+  </header>
+  <div class="modren-navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav nav-primary pl-2">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" id="dropdownMyProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My profile<strong class="caret"></strong></a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMyProfile">
+              <a href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" class="dropdown-item">Change my password</a>
+              <a href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" class="dropdown-item">Change my email address</a>
+              <a href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" class="dropdown-item">Change my contact information</a>
+              <a href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" class="dropdown-item">Delete my online account</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" id="dropdownAddServices" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Access my...<strong class="caret"></strong></a>
+            <div class="dropdown-menu" aria-labelledby="dropdownAddServices">
+              <a href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" class="dropdown-item">WorkSafeBC account</a>
+              <a href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" class="dropdown-item">Claim</a>
+              <a href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" class="dropdown-item">Provider account</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" id="dropdownAdmin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">For administrators<strong class="caret"></strong></a>
+            <div class="dropdown-menu" aria-labelledby="dropdownAdmin">
+              <a href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" class="dropdown-item">Grant online services access to a new user</a>
+              <a href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" class="dropdown-item">Change users' access to online services</a>
+              <a href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" class="dropdown-item">Change users' administrator access</a>
+              <a href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" class="dropdown-item">Remove online services access for a user</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="last-logon-nav float-right pr-3">
+        <span>Last log in: February 18, 2021 9:33 a.m.</span>
+      </div>
+    </nav>
+  </div>
+  <section class="pt-4">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Welcome John</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="pb-2">My Worker Services</h2>
+          <blockquote class="blockquote-border-yellow mb-3">
+            <div>
+              <h3 class="pt-0"> We're enhancing our online services to serve you better </h3>We’re seeking feedback from injured workers to improve our online services and make it easier for you to manage your claim online. If you have a suggestion for us or would like to tell us about your online experience, please <a href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#">provide your feedback</a>.
+            </div>
+          </blockquote>
+          <select class="my-3 form-control" style="max-width:350px">
+            <option value="John Doe - 123456">John Doe - 98765432101</option>
+            <option value="Jane Doe - 456789">Jane Doe - 45678911334</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <!--PROFILE AND STATUS -->
+  <section class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" style="">
+          <h2 class="pb-0">Your claim information</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" style="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" style="">
+          <div class="outlined p-3 my-3">
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td><b>Date of injury</b></td>
+                    <td><b>Summary</b> </td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <td style="min-width:135px"><span style="width: 90px" class="badge  badge-lightmossgreen text-dark badge-thin">Apr 25, 2022</span></td>
+                    <td style="">
+                      <details open="">
+                        <summary class="text-primary mb-3">Claim 12345678 is accepted</summary>
+                        <p>On Month DD, YYYY, we sent you a letter providing information about benefits available to you. You may view a copy of the letter through View documents under Documents in Claim information.</p>
+                      </details>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width:10ch"><span class="badge  badge-lightsunriseyellow badge-thin" style="width: 90px">Mar 17, 2022</span></td>
+                    <td>
+                      <details>
+                        <summary class="text-primary mb-3">Claim 87654321 is pending</summary>
+                        <p>We have started a claim for you and are gathering and reviewing information. On Month DD, YYYY, we sent you a letter with further details. You may view a copy of the letter through View documents. under Documents in Claim information</p>
+                      </details>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge badge-lightmossgreen text-dark badge-thin" style="width: 90px">Mar 13, 2022</span></td>
+                    <td>
+                      <details>
+                        <summary class="text-primary mb-3">Claim 34553452 has been registered but there is no further action</summary>
+                        <p>We understand you have not received medical attention for your injury or missed time from work due to the injury. Therefore, while we have initiated a claim for you, we will not be taking further action at this time. If this is incorrect and you did seek medical treatment or miss time from work after the day of your injury, please call our Call Centre team at the number below. On Month DD, YYYY, we sent a letter with further details. You may view a copy of the letter through View documents. </p>
+                      </details>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--MAIN SERVICES GRID 1 of 4-->
+  <section class="py-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/PAYMENTS/payments.html">
+            <div class="infocard  bg-white my-2 ">
+              <div class="row">
+                <div class="col-3 d-flex justify-content-center align-items-start"><img class="w-100" src="./Worker Services WorkSafeBC-DEMO_files/icon-payments-orange.svg" alt="payments"></div>
+                <div class="col-9 pl-0">
+                  <h3 class="text-dark pt-0">Benefit payments</h3>
+                  <div>Your next payment will be <b>$1,500.00</b> on Apr 28, 2022</div>
+                </div>
+              </div>
+              <div class="servicebox">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#">
+            <div class="infocard  bg-white my-2 ">
+              <div class="row">
+                <div class="col-3 d-flex justify-content-center align-items-start"><img class="w-100" src="./Worker Services WorkSafeBC-DEMO_files/icon-claiminfo-orange.svg" alt="Claim file disclosure"></div>
+                <div class="col-9 pl-0">
+                  <h3 class="text-dark pt-0">Claim information</h3>
+                  <div>View details, communications, documents, wage rate, and more</div>
+                </div>
+              </div>
+              <div class="servicebox">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/REIMBURSEMENTS/dashboard.html">
+            <div class="infocard  bg-white my-2 ">
+              <div class="row">
+                <div class="col-3 d-flex justify-content-center align-items-start"><img class="w-100" src="./Worker Services WorkSafeBC-DEMO_files/icon-reimbursements-orange.svg" alt="Reimbursements"></div>
+                <div class="col-9 pl-0">
+                  <h3 class="text-dark pt-0">Reimbursements</h3>
+                  <div>Submit a request for reimbursement</div>
+                </div>
+              </div>
+              <div class="servicebox">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/DIRECTDEPOSIT/prototype.html">
+            <div class="infocard  bg-white my-2 ">
+              <div class="row">
+                <div class="col-3 d-flex justify-content-center align-items-start"><img class="w-100" src="./Worker Services WorkSafeBC-DEMO_files/icon-paymentmethod-orange.svg" alt="payment method"></div>
+                <div class="col-9 pl-0">
+                  <h3 class="text-dark pt-0">Payment method</h3>
+                  <div>Update your direct deposit information</div>
+                </div>
+              </div>
+              <div class="servicebox">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/UPLOADER/multiuploader.html">
+            <div class="infocard  bg-white my-2 ">
+              <div class="row">
+                <div class="col-3 d-flex justify-content-center align-items-start"><img class="w-100" src="./Worker Services WorkSafeBC-DEMO_files/icon-upload-orange.svg" alt="Upload documents"></div>
+                <div class="col-9 pl-0">
+                  <h3 class="text-dark pt-0">Upload documents</h3>
+                  <div>Submit a document or form directly to your claim</div>
+                </div>
+              </div>
+              <div class="servicebox">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/CONTACTINFO/contactinfo.html">
+            <div class="infocard  bg-white my-2 ">
+              <div class="row">
+                <div class="col-3 d-flex justify-content-center align-items-start"><img class="w-100" src="./Worker Services WorkSafeBC-DEMO_files/icon-contactinfo-orange.svg" alt="Form"></div>
+                <div class="col-9 pl-0">
+                  <h3 class="text-dark pt-0">Contact information</h3>
+                  <div>Update address, preferences, and personal information</div>
+                </div>
+              </div>
+              <div class="servicebox">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#">
+            <div class="infocard  bg-white my-2 ">
+              <div class="row">
+                <div class="col-3 d-flex justify-content-center align-items-start"><img class="w-100" src="./Worker Services WorkSafeBC-DEMO_files/icon-disclosure-orange.svg" alt="Claim file disclosure"></div>
+                <div class="col-9 pl-0">
+                  <h3 class="text-dark pt-0 ">Claim file disclosure</h3>
+                  <div>View or download a claim file disclosure</div>
+                </div>
+              </div>
+              <div class="servicebox">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#">
+            <div class="infocard  bg-white my-2 ">
+              <div class="row">
+                <div class="col-3 d-flex justify-content-center align-items-start"><img class="w-100" src="./Worker Services WorkSafeBC-DEMO_files/icon-review-orange.svg" alt="Review"></div>
+                <div class="col-9 pl-0">
+                  <h3 class="text-dark pt-0">Review</h3>
+                  <div>Request or manage a review of a decision on your claim</div>
+                </div>
+              </div>
+              <div class="servicebox">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#">
+            <div class="infocard  bg-white my-2 ">
+              <div class="row">
+                <div class="col-3 d-flex justify-content-center align-items-start">
+                  <img class="w-100" src="./Worker Services WorkSafeBC-DEMO_files/icon-incident-orange.svg" alt="Form"></div>
+                <div class="col-9 pl-0">
+                  <h3 class="text-dark pt-0">Report an injury</h3>
+                  <div>Submit a report of injury to start a new claim </div>
+                </div>
+              </div>
+              <div class="servicebox">
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--CONTACTS SECTION-->
+  <section class="" style="">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" style="">
+          <h2 class="pb-3">Need to speak with someone about your claim? We’re here to help</h2>
+          <div class="container outlined p-3 bg-white">
+            <div class="row" style="">
+              <div style="" class="col-lg-4  mmp2 highlight-pink">
+                <div class="form-group ml-2">
+                  <span style="max-width:350px" class="d-flex justify-content-between ">
+                    <label><b>Select your claim </b></label>
+                  </span>
+                  <select class="form-control" style="max-width:350px">
+                    <option value="3450 - Broken Leg">12345678 - Feb 2022</option>
+                    <option value="">87654321 - Jan 2022</option>
+                    <option value="">98761234 - Dec 2021</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!--CARDS VIEW-->
+            <div class="row pb-3" style="">
+              <div style="" class="col-lg-4 ">
+                <div class="card mmp2 highlight-pink">
+                  <div class="card-body">
+                    <h4 class="card-title pt-0">Claim owner<i class="fa fa-question-circle tooltip-icon ml-1" data-placement="top" data-toggle="tooltip" title="" aria-hidden="true" data-original-title="Your case manager has overall responsibility for supporting injured workers in their recovery and safe return-to-work."></i></h4>
+                    <div>
+                      <div class="pb-3">Manni Dhasi</div>
+                      <span><i class="fa fa-phone-square  txt-grey mr-2" aria-hidden="true"></i>604.111.1111</span><br>
+                      <span><i class="fa fa-phone-square  txt-grey mr-2" aria-hidden="true"></i>1.888.855.2477 (ext. 1111)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+   <!--GENERAL CONTACTS CARDS 
+              <div style="" class="col-lg-4 ">
+                <div class="card mmp2 highlight-pink">
+                  <div class="card-body">
+                    <h4 class="card-title pt-0">Service Coordinator<i class="fa fa-question-circle tooltip-icon ml-1" data-placement="top" data-toggle="tooltip" title="" aria-hidden="true" data-original-title="Your service coordinator supports your case manager in providing services to you and can help with questions about appointments, travel, payments, and forms."></i></h4>
+                    <div>
+                      <div class="pb-3">Jacobo Echeverry</div>
+                      <span><i class="fa fa-phone-square  txt-grey mr-2" aria-hidden="true"></i>604.556.2222</span><br>
+                      <span><i class="fa fa-phone-square  txt-grey mr-2" aria-hidden="true"></i>1.888.855.2477 (ext. 2222)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+-->
+
+              
+              <div style="" class="col-lg-4 ">
+                <div class="card mmp2 highlight-pink">
+                  <div class="card-body">
+                    <h4 class="card-title pt-0">Service Coordinator<i class="fa fa-question-circle tooltip-icon ml-1" data-placement="top" data-toggle="tooltip" title="" aria-hidden="true" data-original-title="Your service coordinator supports your case manager in providing services to you and can help with questions about appointments, travel, payments, and forms."></i></h4>
+                    <div>
+                      <div class="pb-3">Tania Chang</div>
+                      <span><i class="fa fa-phone-square  txt-grey mr-2" aria-hidden="true"></i>604.556.2222</span><br>
+                      <span><i class="fa fa-phone-square  txt-grey mr-2" aria-hidden="true"></i>1.888.855.2477 (ext. 2222)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--GENERAL CONTACTS CARDS -->
+            <div class="row pb-3">
+              <div style="" class="col-lg-4">
+                <div class="card">
+                  <div class="card-body" style="min-height:180px">
+                    <h4 class="card-title pt-0">Claims Call Centre<i class="fa fa-question-circle tooltip-icon ml-1" data-placement="top" data-toggle="tooltip" title="" aria-hidden="true" data-original-title="Our Claims Call Centre can answer questions about your claim and connect you to more specialized team members."></i></h4>
+                    <div class="pb-3">Monday to Friday 8 a.m. to 6 p.m. </div>
+                    <div>
+                      <span><i class="fa fa-phone-square  txt-grey mr-2" aria-hidden="true"></i>604.231.8888<br>
+                        <span><i class="fa fa-phone-square  txt-grey mr-2" aria-hidden="true"></i>1.888.967.5377 (toll-free)<br>
+                          <br>
+                        </span></span></div>
+                  </div>
+                </div>
+              </div>
+              <div style="" class="col-lg-4">
+                <div class="card">
+                  <div class="card-body" style="min-height:180px">
+                    <h4 class="card-title pt-0">Crisis Support Line<i class="fa fa-question-circle tooltip-icon ml-1" data-placement="top" data-toggle="tooltip" title="" aria-hidden="true" data-original-title="Contact us if you or your family is in emotional crisis."></i></h4>
+                    <div class="pb-3">24 hours a day, 7 days a week</div>
+                    <div>
+                      <span><i class="fa fa-phone-square  txt-grey mr-2" aria-hidden="true"></i>1.800.624.2928 (toll-free)<br>
+                        <br><br>
+                      </span></div>
+                  </div>
+                </div>
+              </div>
+              <div style="" class="col-lg-4">
+                <div class="card">
+                  <div class="card-body" style="min-height:180px">
+                    <h4 class="card-title pt-0">Technical Support<i class="fa fa-question-circle tooltip-icon ml-1" data-placement="top" data-toggle="tooltip" title="" aria-hidden="true" data-original-title="Our Technical support team can help if you’re having difficulty using our online services."></i></h4>
+                    <div class="pb-3" style="">Monday to Friday 7 a.m. to 5 p.m.</div>
+                    <div>
+                      <span><i class="fa fa-phone-square  txt-grey mr-2" aria-hidden="true"></i>604.276.3135<br>
+                        <span><i class="fa fa-phone-square  txt-grey mr-2" aria-hidden="true"></i>1.888.855.2477 (toll-free)<br>
+                          <span><i class="fa fa-envelope txt-grey mr-2" aria-hidden="true"></i><a href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#" class="">ehelp@worksafebc.com</a></span>
+                          <div class="mt-2">
+                            <span></span></div>
+                        </span></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--STATUSBAR-->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--ADDITIONAL SERVICES GRID-->
+  <div class="py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="">Additional services and resources</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="py-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#">
+            <div class="infocard  bg-white my-2">
+              <h3 class="text-dark pt-0">What to expect during your claim</h3>
+              <div>Learn more about the claim process<br><br></div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#">
+            <div class="infocard  bg-white my-2">
+              <h3 class="text-dark pt-0">Bullying and harassment</h3>
+              <div>File a bullying or harassment complaint<br><br></div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#">
+            <div class="infocard  bg-white my-2">
+              <h3 class="text-dark pt-0">Job Finder</h3>
+              <div>If you are a Vocational Rehabilitation client, this tool helps you look for a job</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#">
+            <div class="infocard  bg-white my-2">
+              <h3 class="text-dark pt-0">Clearance alerts</h3>
+              <div>Set up and manage clearance alert subscriptions</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#">
+            <div class="infocard  bg-white my-2">
+              <h3 class="text-dark pt-0">Apply for insurance</h3>
+              <div>Apply for insurance as an employer or business (or view your application)</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" style="">
+          <a class="cardlink" href="https://wsdvuxstatic.blob.core.windows.net/demos/WORKERSERVICES/workerservices.html#">
+            <div class="infocard  bg-white my-2">
+              <h3 class="text-dark pt-0">Search for a review</h3>
+              <div>Check the status of a review</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--FOOTER-->
+  <footer>
+    <div class="footer-curve">
+      <div class="footer-curve-bg"></div>
+    </div>
+    <div class="footer-top py-3">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12"><span><a target="_blank" class="contactus" href="https://www.worksafebc.com/en/contact-us">Contact us</a></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom p-2">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12  text-right"><span><a target="_blank" href="https://www.worksafebc.com/en/legal/copyright-and-trademark/">
+                <span class="d-inline d-sm-none" style="">©</span> <span class="d-none d-sm-inline">Copyright </span> 2022</a>&nbsp;| <a target="_blank" class="" href="https://www.worksafebc.com/en/legal/terms-of-use">Terms of use</a> | <a target="_blank" href="https://www.worksafebc.com/en/about-us/fairness-privacy/protection-of-privacy">Privacy</a></span></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+</body></html>
